@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: grey;
+}
+
+.homelanding-page {
+  background-image: url('https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRYsn4xMIP_eXfJVfrr6cEjfgFaQfGOJZTGObDHycUBskDzLfYOuQ');
+}
+
+.homepage-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.play-button {
+  display: flex;
+  background-color: deeppink;
+  border-radius: 25px;
+  color: white;
+  padding: 15px 75px;
+  text-align: center;
+  font-size: 20px;
+  cursor: pointer;
+}
