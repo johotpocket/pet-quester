@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {Component} from 'react';
 import $ from 'jquery';
 import Loginsignupform from './Loginsignupform';
 import {browserHistory} from 'react-router';
 
-const Signupcontainer = () =>
+class Signupcontainer extends Component {
   state = {
     username: null,
     password: null
@@ -20,7 +20,7 @@ const Signupcontainer = () =>
       password: this.state.password
     };
     $.ajax({
-      url:'/api/loginsignup',
+      url:'/api/signup',
       method: 'POST',
       data: data
     }).done((data) => {
@@ -28,7 +28,7 @@ const Signupcontainer = () =>
         browserHistory.push('/home')
       } else {
         alert(data.message)
-        browserHistory.push('/loginsignup')
+        browserHistory.push('/signup')
       }
     })
   }
@@ -42,6 +42,7 @@ const Signupcontainer = () =>
         />
       </div>
     )
-  };
+  }
+};
 
 export default Signupcontainer;
