@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import Story from './Story';
 import Home from './HomePage';
-import Loginsignup from './Loginsignup';
+import Loginsignupform from './UserAuth/Loginsignupform';
 import './index.css';
 
 ReactDOM.render(
@@ -13,7 +13,7 @@ ReactDOM.render(
       <IndexRoute component={Home}/>
       <Route path='/home' component={Home}/>
       <Route path='/story' component={Story}/>
-      <Route path='/loginsignup' component={Loginsignup}/>
+      <Route path='/loginsignup' component={Loginsignupform}/>
     </Route>
   </Router>,
   document.getElementById('root')

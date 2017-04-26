@@ -110,3 +110,5 @@ import NavBar from './NavBar';
 {this.props.children}
 ```
 - Now, we can test our routes by going to our page
+
+### Login and Signup
