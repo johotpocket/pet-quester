@@ -105,4 +105,8 @@ import NavBar from './NavBar';
 ```js
 <NavBar />
 ```
-- 
+- Since our Routes in `index.js` are cildren of Router, we need to access them in `App.js`, we can do this right under where we called NavBar
+```js
+{this.props.children}
+```
+- Now, we can test our routes by going to our page
