@@ -85,15 +85,24 @@ ReactDOM.render(
   document.getElementById('root')
 );
 ```
-##### navbar
-Creating the navbar is similar to our page routes
-- Make a file in `src` folder named `navbar.js`
+##### NavBar
+Creating the NavBar is similar to our page routes
+- Make a file in `src` folder named `NavBar.js`
 - Need to require `link`, since we will be using links to acces our pages
 ```js
  import { Link } from 'react-router';
 ```
-- In the `navbar.js` file, we will need to create links to each page we want access to
+- In the `NavBar.js` file, we will need to create links to each page we want access to
 ```js
 <Link to="/home" activeClassName="active-nav-btn" className="nav-item"> Home </Link>
 ```
-- Just make sure that whatever path you gave your file in `index.js` is the same in the link for the navbar
+- Just make sure that whatever path you gave your file in `index.js` is the same in the link for the NavBar
+- Import NavBar in `App.js`
+```js
+import NavBar from './NavBar';
+```
+- Call NavBar in our return method
+```js
+<NavBar />
+```
+- 
