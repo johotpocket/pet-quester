@@ -22,8 +22,15 @@
   "homepage": "https://github.com/johotpocket/pet-quester#readme",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.17.1",
     "concurrently": "^3.4.0",
+    "cookie-parser": "^1.4.3",
     "express": "^4.15.2",
-    "jquery": "^3.2.1"
+    "express-session": "^1.15.2",
+    "jquery": "^3.2.1",
+    "mongodb-uri": "^0.9.7",
+    "mongoose": "^4.9.6",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
   }
 }

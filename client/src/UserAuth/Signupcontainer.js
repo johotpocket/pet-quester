@@ -20,7 +20,7 @@ const Signupcontainer = () =>
       password: this.state.password
     };
     $.ajax({
-      url:'/api/loginsignup',
+      url:'/api/signup',
       method: 'POST',
       data: data
     }).done((data) => {
