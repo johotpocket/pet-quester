@@ -1,3 +1,4 @@
+
 import React, {Component} from 'react';
 import $ from 'jquery';
 import {browserHistory} from 'react-router';
@@ -5,18 +6,25 @@ import Loginform from './Loginform';
 
 class Logincontainer extends Component {
   state = {
-    username: null,
+    email: null,
     password: null
   }
-  updateUsername = (username) => this.setState({ username })
-
-  updatePassword = (password) => this.setState({ password })
   handleSubmit = this.handleSubmit.bind(this)
+  onFieldChange = this.onFieldChange.bind(this)
+
+  pdateEmail = (email) => this.setState({ email })
+  updatePassword = (password) => this.setState({ password })
+
+  onFieldChange(fieldName, fieldValue) {
+  const newState = {};
+  newState[fieldName] = fieldValue;
+  this.setState(newState);
+  }
 
   handleSubmit(e) {
     e.preventDefault();
     const data = {
-      username: this.state.username,
+      email: this.state.email,
       password: this.state.password
     }
     $.ajax({
@@ -36,9 +44,10 @@ class Logincontainer extends Component {
     return(
       <div>
         <h1> Login! </h1>
-        <Loginform updateUsername={this.updateUsername}
+        <Loginform updateEmail={this.updateEmail}
           updatePassword={this.updatePassword}
           handleSubmit={this.handleSubmit}
+          onFieldChange={this.onFieldChange}
         />
       </div>
     )

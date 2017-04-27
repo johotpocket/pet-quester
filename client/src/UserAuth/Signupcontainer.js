@@ -1,22 +1,30 @@
 import React, {Component} from 'react';
 import $ from 'jquery';
-import Signupform from './Signupform';
 import {browserHistory} from 'react-router';
+import Signupform from './Signupform';
 
 class Signupcontainer extends Component {
   state = {
-    username: null,
+    email: null,
     password: null
   }
-  updateUsername = (username) => this.setState({ username })
 
-  updatePassword = (password) => this.setState({ password })
   handleSubmit = this.handleSubmit.bind(this)
+  onFieldChange = this.onFieldChange.bind(this)
+
+  updateEmail = (email) => this.setState({ email })
+  updatePassword = (password) => this.setState({ password })
+
+  onFieldChange(fieldName, fieldValue) {
+  const newState = {};
+  newState[fieldName] = fieldValue;
+  this.setState(newState);
+}
 
   handleSubmit(e) {
     e.preventDefault()
     const data = {
-      username: this.state.username,
+      email: this.state.email,
       password: this.state.password
     };
     $.ajax({
@@ -36,9 +44,10 @@ class Signupcontainer extends Component {
     return(
       <div>
         <h1> Sign Up! </h1>
-        <Signupform updateUsername={this.updateUsername}
+        <Signupform updateEmail={this.updateEmail}
                     updatePassword={this.updatePassword}
                     handleSubmit={this.handleSubmit}
+                    onFieldChange={this.onFieldChange}
         />
       </div>
     )
