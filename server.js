@@ -1,4 +1,5 @@
 const express = require('express');
+const routes = require('./controllers/api/routes')
 const app = express();
 const path = require('path');
 const passport = require('passport');
@@ -35,6 +36,8 @@ app.use(session({
 // routes ======================================================================
 require('./config/passport')(passport); // pass passport for configuration
 require('./controllers/api/userAuth.js')(app, passport); // load our routes and pass in our app and fully configured passport
+
+routes(app);
 
 app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));

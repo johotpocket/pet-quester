@@ -3,7 +3,8 @@ var bcrypt = require('bcrypt-nodejs');
 
 var ScenesSchema = new mongoose.Schema({
   startingScene: Boolean,
-  encounter: String,
+  typeOfScene: String,
+  description: String,
   choices: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Choice'}]
 });
 
