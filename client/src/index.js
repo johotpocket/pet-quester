@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import Story from './Story';
 import Home from './HomePage';
-import Logincontainer from './UserAuth/Logincontainer';
-import Signupcontainer from './UserAuth/Signupcontainer';
+import Loginform from './UserAuth/Loginform';
+import Signupform from './UserAuth/Signupform';
 import './index.css';
 
 ReactDOM.render(
@@ -14,8 +14,8 @@ ReactDOM.render(
       <IndexRoute component={Home}/>
       <Route path='/home' component={Home}/>
       <Route path='/story' component={Story}/>
-      <Route path='/login' component={Logincontainer}/>
-      <Route path='/signup' component={Signupcontainer}/>
+      <Route path='/login' component={Loginform}/>
+      <Route path='/signup' component={Signupform}/>
     </Route>
   </Router>,
   document.getElementById('root')

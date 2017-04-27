@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import $ from 'jquery';
 import {browserHistory} from 'react-router';
-import Loginsignupform from './Loginsignupform';
+import Loginform from './Loginform';
 
 class Logincontainer extends Component {
   state = {
@@ -36,7 +36,7 @@ class Logincontainer extends Component {
     return(
       <div>
         <h1> Login! </h1>
-        <Loginsignupform updateUsername={this.updateUsername}
+        <Loginform updateUsername={this.updateUsername}
           updatePassword={this.updatePassword}
           handleSubmit={this.handleSubmit}
         />

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import $ from 'jquery';
-import Loginsignupform from './Loginsignupform';
+import Signupform from './Signupform';
 import {browserHistory} from 'react-router';
 
 class Signupcontainer extends Component {
@@ -36,7 +36,7 @@ class Signupcontainer extends Component {
     return(
       <div>
         <h1> Sign Up! </h1>
-        <Loginsignupform updateUsername={this.updateUsername}
+        <Signupform updateUsername={this.updateUsername}
                     updatePassword={this.updatePassword}
                     handleSubmit={this.handleSubmit}
         />
