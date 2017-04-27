@@ -5,7 +5,7 @@ class HomePage extends Component {
     return (
       <div className='homelanding-page'>
         <div className='homepage-title'>
-          <h1> Game Name </h1>
+          <h1> PET QUESTER </h1>
           <p> Come join the adventure of a lifetime! </p>
           <button className='play-button' type='button'>PLAY NOW!</button>
         </div>

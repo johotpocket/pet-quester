@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import $ from 'jquery';
 import {browserHistory} from 'react-router';
 import Loginform from './Loginform';
+import PropTypes from 'prop-types';
 
 class Logincontainer extends Component {
   state = {
@@ -11,9 +12,6 @@ class Logincontainer extends Component {
   }
   handleSubmit = this.handleSubmit.bind(this)
   onFieldChange = this.onFieldChange.bind(this)
-
-  pdateEmail = (email) => this.setState({ email })
-  updatePassword = (password) => this.setState({ password })
 
   onFieldChange(fieldName, fieldValue) {
   const newState = {};
@@ -44,14 +42,15 @@ class Logincontainer extends Component {
     return(
       <div>
         <h1> Login! </h1>
-        <Loginform updateEmail={this.updateEmail}
-          updatePassword={this.updatePassword}
-          handleSubmit={this.handleSubmit}
-          onFieldChange={this.onFieldChange}
+        <Loginform   handleSubmit={this.handleSubmit}
+                     onFieldChange={this.onFieldChange}
         />
+        <h4> {this.context.greeting} </h4>
       </div>
     )
   }
 };
+
+Logincontainer.contextTypes = {greeting: PropTypes.string}
 
 export default Logincontainer;

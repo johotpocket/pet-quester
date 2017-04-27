@@ -5,7 +5,7 @@ const Loginform = (props) =>
     <form onSubmit={props.handleSubmit}>
       <div>
         <label>Email</label>
-        <input onChange={ (event) => props.onFieldChange("title", event.target.value)} type="email" className=""/>
+        <input onChange={ (event) => props.onFieldChange("email", event.target.value)} type="email" className=""/>
       </div>
       <div>
         <label>Password</label>

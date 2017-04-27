@@ -11,7 +11,7 @@ module.exports = () => {
     const mongooseUri = uriUtil.formatMongoose(mongodbUri);
     mongoose.connect(mongooseUri, options);
   } else if (process.env.NODE_ENV === 'development') {
-    const mongodbUri = "mongodb://localhost/ms-blogging-site"
+    const mongodbUri = "mongodb://localhost/gaming-site-db"
     const mongooseUri = uriUtil.formatMongoose(mongodbUri);
     mongoose.connect(mongooseUri, options);
 
@@ -20,11 +20,11 @@ module.exports = () => {
     }
 
   } else if (process.env.NODE_ENV === 'test') {
-    const mongodbUri = "mongodb://localhost/test-ms-blogging-site"
+    const mongodbUri = "mongodb://localhost/test-gaming-site-db"
     const mongooseUri = uriUtil.formatMongoose(mongodbUri);
     mongoose.connect(mongooseUri, options);
   } else {
-    const mongodbUri = "mongodb://localhost/ms-blogging-site"
+    const mongodbUri = "mongodb://localhost/gaming-site-db"
     const mongooseUri = uriUtil.formatMongoose(mongodbUri);
     mongoose.connect(mongooseUri, options);
 
