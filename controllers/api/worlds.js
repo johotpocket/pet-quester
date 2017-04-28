@@ -26,6 +26,16 @@ exports.create = (req, res) =>{
   })
 }
 
+exports.destroy = (req, res) => {
+  World.remove({ _id: req.params.world_id}, (err, world) => {
+    if(err) {
+      res.send(err);
+    } else {
+      res.json ({ message: "TERMINATED LE WORLD!!"})
+    }
+  });
+};
+
 
 exports.getOne = (req, res) => {
   World.findById(req.params.world_id)

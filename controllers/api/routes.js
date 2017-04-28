@@ -7,6 +7,7 @@ module.exports = (app) => {
   app.post('/api/worlds', World.create);
   app.get('/api/worlds', World.all);
   app.get('/api/worlds/:world_id', World.getOne);
+  app.delete('/api/worlds/:world_id', World.destroy);
 
   app.post('/api/choices/:scene_id', Choice.createWithScene);
   app.get('/api/choices', Choice.all);
