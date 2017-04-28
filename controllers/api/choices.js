@@ -1,5 +1,5 @@
 const Choice = require('../../models/Choices');
-const Scene = require('../../models/Scenes')
+const Scene = require('../../models/Scenes');
 
 exports.all = (req, res) => {
   Choice.find((err, data) => {

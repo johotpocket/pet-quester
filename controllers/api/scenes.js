@@ -1,5 +1,5 @@
 const World = require('../../models/Worlds');
-const Scene = require('../../models/Scenes')
+const Scene = require('../../models/Scenes');
 
 exports.all = (req, res) => {
   Scene.find()
