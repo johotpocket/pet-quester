@@ -1,13 +1,15 @@
 const World = require('../../models/Worlds');
-const Scene = require('../../models/Scenes');
+const Scene = require('../../models/Scenes')
 
 exports.all = (req, res) => {
-  Scene.find((err, data) => {
-    if (!data) return res.status(404).send("no scenes found");
-    if (err) return res.status(500).send(err, "error finding all scenes");
-    res.json(data);
-  });
-};
+  Scene.find()
+    .populate('choices')
+    .exec((err, data) => {
+      if (!data) return res.status(404).send("no scenes found");
+      if (err) return res.status(500).send(err, "error finding all scenes");
+      res.json(data);
+    });
+  };
 
 //first create a scene
 //in your save scene callback, look up world by id
@@ -41,7 +43,9 @@ exports.createWithWorld = (req, res) =>{
 
 
 exports.getOne = (req, res) => {
-  Scenes.findById(req.params.scene_id, (err, data) => {
+  Scenes.findById(req.params.scene_id)
+    .populate('choices')
+    .exec((err, data) => {
     if (err) {
       res.send(err);
     } else {

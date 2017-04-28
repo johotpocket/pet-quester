@@ -8,7 +8,7 @@ module.exports = (app) => {
   app.get('/api/worlds', World.all);
   app.get('/api/worlds/:world_id', World.getOne);
 
-  app.post('/api/choices', Choice.create);
+  app.post('/api/choices/:scene_id', Choice.createWithScene);
   app.get('/api/choices', Choice.all);
   app.get('/api/choices/:choice_id', Choice.getOne);
 

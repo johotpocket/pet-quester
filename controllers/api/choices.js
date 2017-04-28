@@ -1,4 +1,5 @@
 const Choice = require('../../models/Choices');
+const Scene = require('../../models/Scenes')
 
 exports.all = (req, res) => {
   Choice.find((err, data) => {
@@ -9,21 +10,29 @@ exports.all = (req, res) => {
 };
 
 
-exports.create = (req, res) => {
+exports.createWithScene = (req, res) => {
   let newChoice = new Choice();
   newChoice.text = req.body.text;
 
   console.log(newChoice, "NEW CHOICE WAS SAVED");
 
-  newChoice.save((err, data) => {
-    if(err){
+newChoice.save((err, choice) => {
+  Scene.findById(req.params.scene_id, (err, scene) => {
+    if (err) {
       res.send(err);
     } else {
-      res.json({ data: data, message: "Choice successfully added!"})
+      scene.choices.push(choice._id);
+      scene.save((err, scene) => {
+        if(err) {
+          res.send(err);
+        } else {
+          res.json(scene)
+        }
+      });
     }
-  })
+  });
+});
 }
-
 
 exports.getOne = (req, res) => {
   Choice.findById(req.params.choice_id, (err, data) => {
