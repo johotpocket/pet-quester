@@ -8,6 +8,7 @@ exports.all = (req, res) => {
   });
 };
 
+
 exports.create = (req, res) => {
   let newChoice = new Choice();
   newChoice.text = req.body.text;
@@ -22,6 +23,7 @@ exports.create = (req, res) => {
     }
   })
 }
+
 
 exports.getOne = (req, res) => {
   Choice.findById(req.params.choice_id, (err, data) => {

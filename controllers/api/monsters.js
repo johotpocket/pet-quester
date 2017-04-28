@@ -8,6 +8,7 @@ exports.all = (req, res) => {
   });
 };
 
+
 exports.create = (req, res) => {
   let newMonster = new Monster();
   newMonster.name = req.body.name;
@@ -24,6 +25,7 @@ exports.create = (req, res) => {
     }
   })
 }
+
 
 exports.getOne = (req, res) => {
   Monster.findById(req.params.monster_id, (err, data) => {

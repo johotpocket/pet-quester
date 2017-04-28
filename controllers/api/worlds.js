@@ -8,6 +8,7 @@ exports.all = (req, res) => {
   });
 };
 
+
 exports.create = (req, res) =>{
   let newWorld = new World();
   newWorld.title = req.body.title;
@@ -22,6 +23,7 @@ exports.create = (req, res) =>{
     }
   })
 }
+
 
 exports.getOne = (req, res) => {
   World.findById(req.params.world_id, (err, data) => {
