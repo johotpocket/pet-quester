@@ -13,9 +13,9 @@ module.exports = (app) => {
   app.get('/api/choices/:choice_id', Choice.getOne);
 
   app.post('/api/monsters', Monster.create);
-  app.get('./api/monsters', Monster.all);
+  app.get('/api/monsters', Monster.all);
   app.get('/api/monsters/:monster_id', Monster.getOne);
-  
+
   app.post('/api/scenes', Scene.create);
   app.get('/api/scenes', Scene.all);
   app.get('/api/scenes/:scene_id', Scene.getOne);
