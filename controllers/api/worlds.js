@@ -1,7 +1,9 @@
 const World = require('../../models/Worlds')
 
 exports.all = (req, res) => {
-  World.find((err, data) => {
+  World.find()
+    .populate('scenes')
+    .exec((err, data) => {
     if (!data) return res.status(404).send("no worlds found");
     if (err) return res.status(500).send(err, "error finding all worlds");
     res.json(data);
@@ -26,7 +28,9 @@ exports.create = (req, res) =>{
 
 
 exports.getOne = (req, res) => {
-  World.findById(req.params.world_id, (err, data) => {
+  World.findById(req.params.world_id)
+    .populate('scenes')
+    .exec((err, data) => {
     if (err) {
       res.send(err);
     } else {

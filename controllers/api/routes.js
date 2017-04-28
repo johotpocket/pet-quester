@@ -16,7 +16,7 @@ module.exports = (app) => {
   app.get('/api/monsters', Monster.all);
   app.get('/api/monsters/:monster_id', Monster.getOne);
 
-  app.post('/api/scenes', Scene.create);
+  app.post('/api/scenes/:world_id', Scene.createWithWorld);
   app.get('/api/scenes', Scene.all);
-  app.get('/api/scenes/:scene_id', Scene.getOne);
+  app.get('/api/scene/:scene_id', Scene.getOne);
 };

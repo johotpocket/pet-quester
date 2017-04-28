@@ -1,4 +1,5 @@
-const Scene = require('../../models/Scenes')
+const World = require('../../models/Worlds');
+const Scene = require('../../models/Scenes');
 
 exports.all = (req, res) => {
   Scene.find((err, data) => {
@@ -8,8 +9,11 @@ exports.all = (req, res) => {
   });
 };
 
-
-exports.create = (req, res) =>{
+//first create a scene
+//in your save scene callback, look up world by id
+//push newly made scene's id into world.scenes array
+//then save callback again
+exports.createWithWorld = (req, res) =>{
   let newScene = new Scene();
   newScene.startingScene = req.body.startingScene;
   newScene.typeOfScene = req.body.typeOfScene;
@@ -17,13 +21,22 @@ exports.create = (req, res) =>{
 
   console.log(newScene, "AN ENTIRE SCENE SAVED");
 
-  newScene.save((err, data) =>{
-    if(err){
-      res.send(err);
-    } else {
-      res.json({data: data, message: "scene successfully struck!"});
-    }
-  })
+  newScene.save((err, scene) => {
+   World.findById(req.params.world_id, (err, world) => {
+     if (err) {
+       res.send(err);
+     } else {
+       world.scenes.push(scene._id);
+       world.save((err, world) => {
+         if (err) {
+           res.send(err);
+         } else {
+           res.json(world);
+         }
+       });
+     }
+   });
+ });
 }
 
 
