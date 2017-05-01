@@ -23,11 +23,9 @@ class SceneContainer extends Component {
     this.loadAllScenesFromServer()
   }
   loadAllScenesFromServer() {
-    fetch(`/api/scene/:scene_id`)
+    fetch(`/api/scene/${this.props.params.scene_id}`)
       .then(blob => blob.json())
-      .then(startingScene => this.setState({ startingScene: startingScene.startingScene }))
-      .then(typeOfScene => this.setState({ typeOfScene: typeOfScene.typeOfScene }))
-      .then(description => this.setState({ description: description.description }))
+      .then(data => console.log(data))
   }
   render() {
     return(

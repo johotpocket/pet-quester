@@ -4,7 +4,7 @@ import WorldCard from './WorldCard';
 class WorldList extends Component {
   render() {
     const worldCards = this.props.worlds.map((item, index) => {
-      return <WorldCard title={item.title} id={item._id}
+      return <WorldCard title={item.title} id={item.scenes[0]._id}
       key={index}
       />
     })

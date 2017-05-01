@@ -7,6 +7,7 @@ import Home from './HomePage';
 import Logincontainer from './UserAuth/Logincontainer';
 import Signupcontainer from './UserAuth/Signupcontainer';
 import WorldContainer from './WorldContainer';
+import SceneContainer from './SceneContainer';
 import './index.css';
 
 ReactDOM.render(
@@ -18,6 +19,7 @@ ReactDOM.render(
       <Route path='/login' component={Logincontainer}/>
       <Route path='/signup' component={Signupcontainer}/>
       <Route path='/worlds' component={WorldContainer}/>
+      <Route path='/scenes/:scene_id' component={SceneContainer}/>
     </Route>
   </Router>,
   document.getElementById('root')
