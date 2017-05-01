@@ -17,7 +17,7 @@ ReactDOM.render(
       <Route path='/story' component={Story}/>
       <Route path='/login' component={Logincontainer}/>
       <Route path='/signup' component={Signupcontainer}/>
-      <Route path='/worlds/' component={WorldContainer}/>
+      <Route path='/worlds' component={WorldContainer}/>
     </Route>
   </Router>,
   document.getElementById('root')

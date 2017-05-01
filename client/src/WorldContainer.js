@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import WorldList from './WorldList';
+import SceneContainer from './SceneContainer';
 
 class WorldContainer extends Component {
   state = {
@@ -21,6 +22,7 @@ class WorldContainer extends Component {
         </div>
         <div>
           { this.state.worlds ? <WorldList worlds={this.state.worlds}/> : null }
+          <SceneContainer />
         </div>
       </div>
     )
