@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import $ from 'jquery';
 import WorldList from './WorldList';
 
 class WorldContainer extends Component {
