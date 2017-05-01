@@ -8,6 +8,7 @@ import Logincontainer from './UserAuth/Logincontainer';
 import Signupcontainer from './UserAuth/Signupcontainer';
 import WorldContainer from './WorldContainer';
 import SceneContainer from './SceneContainer';
+import ChoicesContainer from './ChoicesContainer';
 import './index.css';
 
 ReactDOM.render(
