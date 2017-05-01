@@ -43,7 +43,7 @@ exports.createWithWorld = (req, res) =>{
 
 
 exports.getOne = (req, res) => {
-  Scenes.findById(req.params.scene_id)
+  Scene.findById(req.params.scene_id)
     .populate('choices')
     .exec((err, data) => {
     if (err) {
