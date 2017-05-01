@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import $ from 'jquery';
-import {browserHistory} from 'react-router';
 import Signupform from './Signupform';
 
 class Signupcontainer extends Component {
