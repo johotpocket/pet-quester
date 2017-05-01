@@ -88,7 +88,7 @@ ReactDOM.render(
 ##### NavBar
 Creating the NavBar is similar to our page routes
 - Make a file in `src` folder named `NavBar.js`
-- Need to require `link`, since we will be using links to acces our pages
+- Need to require `link`, since we will be using links to access our pages
 ```js
  import { Link } from 'react-router';
 ```
@@ -112,3 +112,54 @@ import NavBar from './NavBar';
 - Now, we can test our routes by going to our page
 
 ### Login and Signup
+In order to play our game, players will need to create an account and login. Later on, we will make it so players can also save progress through their account.
+
+First we need a folder to store all of our User Authentication.
+Inside `client` folder and then in `src` we will create our  `UserAuth` file.
+
+Inside `UserAuth` we will need four files.
+- A container for login
+- Form for login
+- A container for signup
+- Form for signup
+
+Each container will talk to its respective form.
+
+##### Login and Singup Containers
+Import:
+```js
+import React, {Component} from 'react';
+import $ from 'jquery';
+import {browserHistory} from 'react-router';
+import Loginform from './Loginform';
+import PropTypes from 'prop-types';
+```
+Set state for email and password to null:
+```js
+state = {
+  email: null,
+  password: null
+}
+```
+
+##### Login and Singup Forms
+The forms will talk to the login and signup containers and be able to render certain elements. Because of this, forms are fairly simple. In our use case, we want to render links to our container.
+
+```js
+<input onChange={ (event) => props.onFieldChange("email", event.target.value)} type="email" className=""/>
+```
+We have two links, one for email and the other for password. Be sure to enclose your links in a `<form></form>` tag. In the form you will need to pass in `{props.handleSubmit}` since we defined it in our container files.
+
+*After you create the containers and forms, you can test by going to your page and attempting to signup and log in*
+
+##### Potential error
+If you come across and error (like we did ) that says updateEmail (or updatePassword).props is not a function, make sure you check what your route is in `index.js`. When we got that error, we were rendering our *Form* pages when we needed to render our *Container* pages. For example:
+`In index.js file`
+```js
+<Route path='/login' component={Logincontainer}/>
+<Route path='/signup' component={Signupcontainer}/>
+```
+
+And of course, be sure to *import* each container file at the top of `index.js`
+
+-------
