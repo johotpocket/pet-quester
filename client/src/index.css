@@ -5,6 +5,10 @@ body {
   background-color: grey;
 }
 
+.navbar {
+  background-color: beige;
+}
+
 .homelanding-page {
   background-image: url('https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRYsn4xMIP_eXfJVfrr6cEjfgFaQfGOJZTGObDHycUBskDzLfYOuQ');
 }
@@ -24,4 +28,8 @@ body {
   text-align: center;
   font-size: 20px;
   cursor: pointer;
+}
+
+.scene-image {
+  max-width: 50%;
 }

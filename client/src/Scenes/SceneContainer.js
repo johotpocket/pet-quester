@@ -1,38 +1,23 @@
 import React, {Component} from 'react';
-import SceneList from './SceneList';
+import SceneCard from './SceneCard';
 
 class SceneContainer extends Component {
   state = {
-    startingScene: null,
-    typeOfScene: null,
-    description: null
+    scene: null
   }
-  handleSubmit = this.handleSubmit.bind(this)
-  updateStartingScene = (startingScene) => this.setState({ startingScene })
-  updateTypeOfScene = (typeOfScene) => this.setState({ typeOfScene })
-  updateDescription = (description) => this.setState({ description })
 
-  handleSubmit(e){
-    e.preventDefault();
-    const data = {
-      startingScene: this.state.startingScene,
-      typeOfScene: this.state.typeOfScene,
-      description: this.state.description
-    }
-  }
   componentDidMount() {
-    this.loadAllScenesFromServer()
+    this.loadSceneFromServer()
   }
-  loadAllScenesFromServer() {
+  loadSceneFromServer() {
     fetch(`/api/scene/${this.props.params.scene_id}`)
       .then(blob => blob.json())
-      .then(data => console.log(data))
+      .then(data => this.setState({ scene: data }))
   }
   render() {
     return(
-      <div>
-        {this.state.scenes ? <SceneList scenes={this.state.scenes}/> : null }
-        <h4> Sure is lonely here </h4>
+      <div className="container">
+        { this.state.scene ? <SceneCard scene={this.state.scene} greeting={"hello world"}/> : null }
       </div>
     )
   }
