@@ -29,3 +29,9 @@ body {
   font-size: 20px;
   cursor: pointer;
 }
+
+.scene-image {
+  display: flex;
+  align-content: center;
+  max-width: 100%;
+}
