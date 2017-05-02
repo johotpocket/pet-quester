@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import SceneList from './SceneList';
 
 class SceneContainer extends Component {
   state = {
@@ -30,7 +31,8 @@ class SceneContainer extends Component {
   render() {
     return(
       <div>
-        <h4>   </h4>
+        {this.state.scenes ? <SceneList scenes={this.state.scenes}/> : null }
+        <h4> Sure is lonely here </h4>
       </div>
     )
   }

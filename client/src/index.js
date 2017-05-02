@@ -6,8 +6,8 @@ import Story from './Story';
 import Home from './HomePage';
 import Logincontainer from './UserAuth/Logincontainer';
 import Signupcontainer from './UserAuth/Signupcontainer';
-import WorldContainer from './WorldContainer';
-import SceneContainer from './SceneContainer';
+import WorldContainer from './World/WorldContainer';
+import SceneContainer from './Scenes/SceneContainer';
 import './index.css';
 
 ReactDOM.render(
