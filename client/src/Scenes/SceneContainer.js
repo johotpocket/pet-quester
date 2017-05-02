@@ -9,10 +9,21 @@ class SceneContainer extends Component {
   componentDidMount() {
     this.loadSceneFromServer()
   }
+  componentDidUpdate (prevProps) {
+      let oldId = prevProps.params.scene_id
+      let newId = this.props.params.scene_id
+      if (newId !== oldId){
+        this.loadSceneFromServer(this.props.params.scene_id)
+      }
+  }
   loadSceneFromServer() {
     fetch(`/api/scene/${this.props.params.scene_id}`)
       .then(blob => blob.json())
-      .then(data => this.setState({ scene: data }))
+      .then(data => {
+        console.log(data, 'scene loaded from scene container')
+        this.setState({ scene: data })
+      }
+    )
   }
   render() {
     return(
