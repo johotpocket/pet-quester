@@ -17,7 +17,7 @@ class SceneContainer extends Component {
   render() {
     return(
       <div className="container">
-        { this.state.scene ? <SceneCard scene={this.state.scene} greeting={"hello world"}/> : null }
+        { this.state.scene ? <SceneCard scene={this.state.scene}/> : null }
       </div>
     )
   }

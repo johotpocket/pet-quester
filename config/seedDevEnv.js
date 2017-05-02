@@ -6,9 +6,11 @@ exports.seed = () => {
   var choicesStartingRoomLeave = new Choice ({ text: "leave room"})
   var choicesForestExplore = new Choice ({ text: "go outside"})
   var choicesCastleExplore = new Choice ({ text: "explore inside"})
+  var choicesCastleEatFood = new Choice ({ text: "eat that food"})
   choicesStartingRoomLeave.save()
   choicesForestExplore.save()
   choicesCastleExplore.save()
+  choicesCastleEatFood.save()
 
   var sceneStartingRoom = new Scene ({ startingScene: true,
                             typeOfScene: "normal",
@@ -21,14 +23,27 @@ exports.seed = () => {
                             description: "a stone hall lined with knight armor and portraits of frowning nobles",
                             image: "https://cdnb.artstation.com/p/assets/images/images/001/786/803/large/tina-popadic-zs-castle-hall.jpg?1452720318",
                             choices: [choicesForestExplore._id, choicesCastleExplore._id] })
-  sceneCastleHall.save()
 
+  choicesStartingRoomLeave.nextScene = sceneCastleHall._id
+  choicesCastleEatFood.nextScene = sceneCastleHall._id
+
+
+  sceneCastleHall.save()
+  var sceneCastleKitchen = new Scene ({ startingScene: false,
+                            typeOfScene: "normal",
+                            description: "a quaint kitchen lined with various meats and cutlery",
+                            image: "http://www.rightclickstudios.com/wp-content/uploads/2014/12/20130429_RC39467_HDR.jpg",
+                            choices: [choicesCastleEatFood._id] })
+
+  choicesCastleExplore.nextScene = sceneCastleKitchen._id
+
+  sceneCastleKitchen.save()
   var world1 = new World ({ title: "Castle",
                             scenes: [sceneStartingRoom._id, sceneCastleHall._id]
                           })
 
 
-  var choicesReturnToCastle = new Choice ({ text: "return to castle" })
+  var choicesReturnToCastle = new Choice ({ text: "return to castle"})
   var choicesClimbLadder = new Choice ({ text: "climb ladder"})
   var choicesFightBats = new Choice ({ text: "fight those bats"})
   var choicesFleeFromBats = new Choice ({ text: "turn tail and run from those bats"})
@@ -42,12 +57,21 @@ exports.seed = () => {
                             description: "the edge of a typical fairytale forest",
                             image: "http://weknownyourdreamz.com/images/forest/forest-04.jpg",
                             choices: [choicesReturnToCastle._id, choicesClimbLadder._id] })
+
+  choicesForestExplore.nextScene = sceneForestStart._id
+  choicesFightBats.nextScene = sceneForestStart._id
+  choicesFleeFromBats.nextScene = sceneForestStart._id
+  choicesReturnToCastle.nextScene = sceneCastleHall._id
+
   sceneForestStart.save()
   var sceneTreeWalkway = new Scene ({ startingScene: false,
                             typeOfScene: "normal",
                             description: "a walkway high above the forest floor. vicious bats block your path",
                             image: "http://redwoods.co.nz/wordpress/wp-content/uploads/2015/12/IMG_0188compressed.jpg",
                             choices: [choicesFightBats._id, choicesFleeFromBats._id] })
+
+  choicesClimbLadder.nextScene = sceneTreeWalkway._id
+
   sceneTreeWalkway.save()
 
   var world2 = new World ({ title: "Forest",
