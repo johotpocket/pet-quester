@@ -16,7 +16,7 @@ class ChoicesContainer extends Component {
   render() {
     return(
       <div>
-        { this.state.choices ? <ChoicesCard  /> : null }
+        { this.state.choices ? <ChoicesCard /> : null }
       </div>
     )
   }
