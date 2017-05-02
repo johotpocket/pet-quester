@@ -4,7 +4,9 @@ import { Link } from 'react-router';
 const SceneCard = (props) => {
   return(
     <div>
-      <img className="scene-image" src="http://animals.sandiegozoo.org/sites/default/files/2016-11/animals_hero_giraffe_1_0.jpg"></img>
+      <div>
+      <img className="scene-image" src={props.scene.image}/>
+      </div>
       <h4> {props.scene.description} </h4>
       {
         props.scene.choices.map((choice) => {
