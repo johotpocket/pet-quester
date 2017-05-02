@@ -9,7 +9,7 @@ const SceneCard = (props) =>
       props.scene.choices.map((choice) =>
       (
         <div>
-          <Link to={'/scenes/'} > {props.scene.choices.nextScene} </Link>
+          <Link to={'/scenes/' + {props.scene.choices.nextScene.id} } > {choice.text} </Link>
           <button type="button"> {choice.text} </button>
         </div>
         )
