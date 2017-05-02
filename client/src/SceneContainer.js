@@ -30,7 +30,7 @@ class SceneContainer extends Component {
   render() {
     return(
       <div>
-        <h4> Scene Selector </h4>
+        <h4>   </h4>
       </div>
     )
   }

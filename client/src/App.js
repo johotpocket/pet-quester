@@ -7,7 +7,6 @@ class App extends Component {
     super(props, context)
   }
   componentDidMount() {
-    console.log("found context greeting", this.context.greeting);
   }
   render() {
     return (
