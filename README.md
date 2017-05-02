@@ -165,6 +165,10 @@ And of course, be sure to *import* each container file at the top of `index.js`
 -------
 ### Database
 
-### Seeding your database
+Since we will both be coding on this project, we are going to create 'false' data, that is accessible to both of us. This way, we are not using two sets of data to test.
+
+Install: `npm install --save dotenv`
+
+##### Seeding your database
 
 seedDevEnv is the file used for putting stuff in our database when our server launches. This is mainly to ensure that everyone working on the project is working with the same database content. The only problem is that it runs every time you run it, so eventually things will get flooded.... To stop this, we made .env in the root file. If it's set to true, it'll run on launch. If false, it won't. We used robomongo to clear our database if needed. Delete functionality will likely come later.
