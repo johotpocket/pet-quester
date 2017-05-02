@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router';
 
 class Story extends Component {
   render() {
@@ -12,6 +13,7 @@ class Story extends Component {
         Sunlight streamsthrough a small open window, and small birds can be heard chirping away. You glimpse the tops of
         trees outside, too.
         </p>
+        <Link to='/worlds'>Start Your Adventure</Link>
       </div>
     );
   }
