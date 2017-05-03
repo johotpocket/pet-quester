@@ -6,17 +6,16 @@ body {
 }
 
 .navbar {
-  background-color: beige;
+  background-color: seashell;
+  opacity: 0.6;
 }
 
-.homelanding-page {
-  background-image: url('https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRYsn4xMIP_eXfJVfrr6cEjfgFaQfGOJZTGObDHycUBskDzLfYOuQ');
-}
-
-.homepage-title {
+.home-jumbo {
   display: flex;
   flex-direction: column;
   align-items: center;
+  /*https://t4.ftcdn.net/jpg/01/10/49/85/240_F_110498526_noFimuAo32NiLPO0b7c4bEbK06cG1qHe.jpg*/
+  background-image: url('http://content.chupamobile.com/user-upload2/product-image-screenshot/4ioluE97khZpn4jynfbUjKbi_1_Full.png');
 }
 
 .play-button {
@@ -30,12 +29,15 @@ body {
   cursor: pointer;
 }
 
-.story-header {
-  font-family: 'MedievalSharp', cursive;
+.story-jumbo {
   display: flex;
+  justify-content: center;
+  font-family: 'Dancing Script', cursive;
+  color: lightgoldenrodyellow;
+  background-image: url('http://wallpapercave.com/wp/FjnZ25X.jpg');
 }
 
-.story-page-container {
+.about-story {
   font-family: 'MedievalSharp', cursive;
   font-size: 18px;
 }
