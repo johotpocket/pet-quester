@@ -10,13 +10,28 @@ body {
   opacity: 0.6;
 }
 
-.home-jumbo {
+.home-header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /*https://t4.ftcdn.net/jpg/01/10/49/85/240_F_110498526_noFimuAo32NiLPO0b7c4bEbK06cG1qHe.jpg*/
-  background-image: url('http://content.chupamobile.com/user-upload2/product-image-screenshot/4ioluE97khZpn4jynfbUjKbi_1_Full.png');
 }
+
+.game-name {
+  font-size: 70px;
+}
+
+.adventure-home {
+  font-size: 20px;
+}
+
+
+/*
+.home-jumbo {
+  opacity: 0.6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}*/
 
 .play-button {
   display: flex;

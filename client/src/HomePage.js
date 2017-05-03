@@ -3,9 +3,9 @@ import { Link } from 'react-router';
 
 const HomePage = () =>
   <div className='container'>
-    <div className='jumbotron home-jumbo'>
-      <h1> Pet Quester </h1>
-      <p> Come join the adventure of a lifetime! </p>
+    <div className='home-header'>
+      <h1 className='game-name'> Pet Quester </h1>
+      <p className='adventure-home'> Come join the adventure of a lifetime! </p>
       <Link to="/story" className='play-button' type='button'>PLAY NOW!</Link>
     </div>
     <div>
