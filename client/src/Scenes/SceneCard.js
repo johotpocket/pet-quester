@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router';
+import './scene.css'
 
 const SceneCard = (props) => {
   return(
-    <div>
+    <div className="container scene">
       <div>
       <img className="scene-image" src={props.scene.image}/>
       </div>
+      <div className="jumbotron description">
       <h4> {props.scene.description} </h4>
       {
         props.scene.choices.map((choice) => {
@@ -18,6 +20,7 @@ const SceneCard = (props) => {
           )
       })
     }
+    </div>
     </div>
   )
 }
