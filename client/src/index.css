@@ -18,10 +18,16 @@ body {
 
 .game-name {
   font-size: 70px;
+  font-family: 'Dancing Script', cursive;
 }
 
 .adventure-home {
   font-size: 20px;
+  font-family: 'MedievalSharp', cursive;
+}
+
+.home-about {
+  font-family: 'MedievalSharp', cursive;
 }
 
 

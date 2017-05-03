@@ -8,7 +8,7 @@ const HomePage = () =>
       <p className='adventure-home'> Come join the adventure of a lifetime! </p>
       <Link to="/story" className='play-button' type='button'>PLAY NOW!</Link>
     </div>
-    <div>
+    <div className='home-about'>
       <h2>Welcome!</h2>
       <p> About? </p>
     </div>

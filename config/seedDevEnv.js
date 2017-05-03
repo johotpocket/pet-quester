@@ -194,8 +194,10 @@ exports.seed = () => {
 
   var choicesDoorNumOne = new Choice ({ text: 'door number one' })
   choicesDoorNumOne.save()
+
   var choicesDoorNumTwo = new Choice ({ text: 'door number two' })
   choicesDoorNumTwo.save()
+
   var choicesEatSweets = new Choice ({ text: 'eat all the sweet food!' })
   choicesEatSweets.save()
   var choicesEatSavory = new Choice ({ text: 'eat all the savory food!' })
@@ -220,27 +222,25 @@ exports.seed = () => {
        choices: [choicesDoorNumOne._id, choicesDoorNumTwo._id] })
   sceneCastleLeaveStartRoom.save()
 
-  var sceneFindKitchen = new Scene ({ startingScene: false,
-      typeOfScene: 'normal',
-      description: 'You found the kitchen! It is full of delicious food!',
-      image:'https://static1.squarespace.com/static/52d59eb5e4b02a4ced9681d4/52f54721e4b09d0c24fea443/52fa6162e4b05af3685677b8/1392140720882/13th+Scene+123+Shot+2.jpg',
-      choices: [choicesEatSweets._id, choicesEatSavory._id] })
-  sceneFindKitchen.save()
-
   var sceneFindAnotherDoor = new Scene ({ startingScene: false,
       typeOfScene: 'normal',
       description: 'You open the door and find yourself in a creepy hallway.<br/> On the otherside is another door. You go to it and open it, <br/>there are stairs leading up and stairs leading down',
       image: 'http://www.urban75.org/photos/kent/images/dover-castle-20.jpg',
       choices: [choicesGoUpstairs._id, choicesGoDownStairs._id] })
   sceneFindAnotherDoor.save()
-
   choicesDoorNumOne.nextScene = sceneFindAnotherDoor._id
-  choicesDoorNumTwo.nexstScene = sceneFindKitchen._id
 
+  var sceneFindKitchen = new Scene ({ startingScene: false,
+      typeOfScene: 'normal',
+      description: 'You found the kitchen! It is full of delicious food!',
+      image:'https://static1.squarespace.com/static/52d59eb5e4b02a4ced9681d4/52f54721e4b09d0c24fea443/52fa6162e4b05af3685677b8/1392140720882/13th+Scene+123+Shot+2.jpg',
+      choices: [choicesEatSweets._id, choicesEatSavory._id] })
+  sceneFindKitchen.save()
+  choicesDoorNumTwo.nextScene = sceneFindKitchen._id
 
   var sceneTrapDoorOpens = new Scene ({ startingScene: false,
       typeOfScene:'battle',
-      description: 'a trap door has opened and you fell through! You find youself in a cellar, where a wild boar starts charing!',
+      description: 'a trap door opened and you have fallen through! You find youself in a cellar, where a wild boar starts charing!',
       image: 'http://3.bp.blogspot.com/-2MLUmOQbQks/UazOFHOpvdI/AAAAAAAALc8/w8cQ0ukdXek/s1600/(20130520)+-+Cardoness+Castle+-+007.JPG',
       choices: [choicesFightTheBoar._id, choicesRunAwayFromBoar._id] })
   sceneTrapDoorOpens.save()
