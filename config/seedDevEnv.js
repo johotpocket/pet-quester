@@ -194,20 +194,40 @@ exports.seed = () => {
 
   var choicesEatSweets = new Choice ({ text: 'eat all the sweet food!' })
   choicesEatSweets.save()
+
   var choicesEatSavory = new Choice ({ text: 'eat all the savory food!' })
   choicesEatSavory.save()
+
   var choicesGoUpstairs = new Choice ({ text: 'follow the stairs up' })
   choicesGoUpstairs.save()
+
   var choicesGoDownStairs = new Choice ({ text: 'follow the stairs down' })
   choicesGoDownStairs.save()
+
   var choicesFightTheBoar = new Choice ({ text: 'fight!!!' })
   choicesFightTheBoar.save()
+
   var choicesRunAwayFromBoar = new Choice ({ text: 'run away!!!'})
   choicesRunAwayFromBoar.save()
+
   var choicesQuit = new Choice ({ text: 'quit game' })
   choicesQuit.save()
+
   var choicesRestart = new Choice ({ text: 'restart game' })
   choicesRestart.save()
+
+  var choicesFeedCreature = new Choice ({ text: 'he looks hungry, I will share my food. om nom nom' })
+  choicesFeedCreature.save()
+
+  var choicesLeaveKitchen = new Choice ({ text: 'meh, that is cool, but there are other things to explore' })
+  choicesLeaveKitchen.save()
+
+  var choicesPullBookFromShelf = new Choice ({ text: 'this book looks out of place, pull it' })
+  choicesPullBookFromShelf.save()
+
+  var choicesKeepLookingThroughLibrary = new Choice ({ text: 'there is nothing left here for you. you decide to live the remainder of your days in the castle' })
+  choicesKeepLookingThroughLibrary.save()
+
 
   var sceneCastleLeaveStartRoom = new Scene ({ startingScene: false,
        typeOfScene: 'normal',
@@ -238,7 +258,6 @@ exports.seed = () => {
       image: 'http://3.bp.blogspot.com/-2MLUmOQbQks/UazOFHOpvdI/AAAAAAAALc8/w8cQ0ukdXek/s1600/(20130520)+-+Cardoness+Castle+-+007.JPG',
       choices: [choicesFightTheBoar._id, choicesRunAwayFromBoar._id] })
   sceneTrapDoorOpens.save()
-  choicesRunAwayFromBoar.nextScene = sceneRunAwayFromBoar._id
 
   var sceneFoughtTheBoar = new Scene ({ startingScene: false,
       typeOfScene: 'ending',
@@ -254,19 +273,43 @@ exports.seed = () => {
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaxt21iTJAgdVVciLLejQfCi9sL7UVj0qgA2Zgn1tkbEpuwY56QA',
       choices: [choicesRestart._id, choicesQuit._id] })
     sceneRunAwayFromBoar.save()
+    choicesRunAwayFromBoar.nextScene = sceneRunAwayFromBoar._id
+
 
     var sceneMagicalBeingAppears = new Scene ({ startingScene: false,
         typeOfScene: 'normal',
         description: 'after devouring all the savory treats, you look behind you and a magical creature stands before you',
         image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQXHeCfiYRvNKZz8nLbNB3YsowNtU0l74hndnMSGcBofzPlgEYZ',
         choices: [choicesFeedCreature._id, choicesLeaveKitchen._id] })
+      sceneMagicalBeingAppears.save()
+
 
     choicesEatSweets.nextScene = sceneTrapDoorOpens._id
     choicesEatSavory.nextScene = sceneMagicalBeingAppears._id
 
+    var sceneEndUpInLibrary = new Scene ({ startingScene: false,
+        typeOfScene: 'normal',
+        description: 'after leaving the kitchen you find yourself in a massive library! there are many things to epxlore.',
+        image: 'https://2982-presscdn-29-70-pagely.netdna-ssl.com/wp-content/uploads/2016/05/Libraries-That-Should-Have-Been-Cast-in-Beauty-and-the-Beast.jpg',
+        choices: [choicesPullBookFromShelf._id, choicesKeepLookingThroughLibrary._id]
+    })
+    sceneEndUpInLibrary.save()
+    choicesLeaveKitchen.nextScene = sceneEndUpInLibrary._id
+
+
+
+
+
     var castle = new World ({ title: "Castle",
-                               scenes: [sceneCastleLeaveStartRoom._id, sceneFindKitchen._id, sceneFindAnotherDoor._id,
-                                        sceneTrapDoorOpens._id, sceneFoughtTheBoar._id, sceneRunAwayFromBoar._id] })
+                               scenes: [sceneCastleLeaveStartRoom._id,
+                                        sceneFindKitchen._id,
+                                        sceneFindAnotherDoor._id,
+                                        sceneTrapDoorOpens._id,
+                                        sceneFoughtTheBoar._id,
+                                        sceneRunAwayFromBoar._id,
+                                        sceneMagicalBeingAppears._id,
+                                        sceneEndUpInLibrary._id,
+                                          ] })
 
 
 castle.save((err, data) =>{
