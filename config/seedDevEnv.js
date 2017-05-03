@@ -144,7 +144,7 @@ exports.seed = () => {
                             description: "the old man cackles and stands back up",
                             image: "http://static.fjcdn.com/pictures/When_96eeff_1756509.jpg",
                             choices: [choicesPushOldMan3._id, choicesShoutAtOldMan._id] })
-  choicesPushOldMan1.nextScene = OldManPush2._id
+  choicesPushOldMan2.nextScene = OldManPush2._id
   OldManPush2.save()
 
   var OldManPush3 = new Scene ({ startingScene: false,
