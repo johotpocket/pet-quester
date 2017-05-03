@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: grey;
+  background-image: url('https://s-media-cache-ak0.pinimg.com/originals/e1/66/58/e1665877c1d86f1eb302192977a1aa4b.jpg')
 }
 
 .navbar {
@@ -49,4 +49,6 @@ body {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  font-family: 'MedievalSharp', cursive;
+  font-size: 18px;
 }
