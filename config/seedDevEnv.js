@@ -244,6 +244,7 @@ exports.seed = () => {
       image: 'http://3.bp.blogspot.com/-2MLUmOQbQks/UazOFHOpvdI/AAAAAAAALc8/w8cQ0ukdXek/s1600/(20130520)+-+Cardoness+Castle+-+007.JPG',
       choices: [choicesFightTheBoar._id, choicesRunAwayFromBoar._id] })
   sceneTrapDoorOpens.save()
+  choicesRunAwayFromBoar.nextScene = sceneRunAwayFromBoar._id
 
   var sceneFoughtTheBoar = new Scene ({ startingScene: false,
       typeOfScene: 'ending',
@@ -251,6 +252,7 @@ exports.seed = () => {
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIb-XOM1fvsw0HlCATLAT6gQD6af35mvyuuB_a1G6eh8aWW-Bdnw',
       choices: [choicesQuit._id, choicesRestart._id] })
     sceneFoughtTheBoar.save()
+    choicesFightTheBoar.nextScene = sceneFoughtTheBoar._id
 
   var sceneRunAwayFromBoar = new Scene ({ startingScene: false,
       typeOfScene: 'winning',
@@ -259,11 +261,14 @@ exports.seed = () => {
       choices: [choicesRestart._id, choicesQuit._id] })
     sceneRunAwayFromBoar.save()
 
+    var sceneMagicalBeingAppears = new Scene ({ startingScene: false,
+        typeOfScene: 'normal',
+        description: 'after devouring all the savory treats, you look behind you and a magical creature stands before you',
+        image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQXHeCfiYRvNKZz8nLbNB3YsowNtU0l74hndnMSGcBofzPlgEYZ',
+        choices: [choicesFeedCreature._id, choicesLeaveKitchen._id] })
 
     choicesEatSweets.nextScene = sceneTrapDoorOpens._id
-    // choicesEatSavory.nextScene =
-    choicesFightTheBoar.nextScene = sceneFoughtTheBoar._id
-    choicesRunAwayFromBoar.nextScene = sceneRunAwayFromBoar._id
+    choicesEatSavory.nextScene = sceneMagicalBeingAppears._id
 
     var castle = new World ({ title: "Castle",
                                scenes: [sceneCastleLeaveStartRoom._id, sceneFindKitchen._id, sceneFindAnotherDoor._id,
