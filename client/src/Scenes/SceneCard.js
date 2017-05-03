@@ -6,7 +6,7 @@ const SceneCard = (props) => {
   return(
     <div className="container scene">
       <div>
-      <img className="scene-image" src={props.scene.image}/>
+      <img className="scene-image" src={props.scene.image} alt=''/>
       </div>
       <div className="jumbotron description">
       <h4> {props.scene.description} </h4>
