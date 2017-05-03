@@ -224,7 +224,7 @@ exports.seed = () => {
 
   var sceneFindAnotherDoor = new Scene ({ startingScene: false,
       typeOfScene: 'normal',
-      description: 'You open the door and find yourself in a creepy hallway.<br/> On the otherside is another door. You go to it and open it, <br/>there are stairs leading up and stairs leading down',
+      description: 'You open the door and find yourself in a creepy hallway. On the otherside is another door. You go to it and open it, there are stairs leading up and stairs leading down',
       image: 'http://www.urban75.org/photos/kent/images/dover-castle-20.jpg',
       choices: [choicesGoUpstairs._id, choicesGoDownStairs._id] })
   sceneFindAnotherDoor.save()
