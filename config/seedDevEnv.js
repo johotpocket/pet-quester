@@ -7,6 +7,8 @@ exports.seed = () => {
   choicesReturnToCastle.save()
   var choicesClimbLadder = new Choice ({ text: "climb ladder"})
   choicesClimbLadder.save()
+  choicesWalkDownPath = new Choice ({ text: "walk down the forest path" })
+  choicesWalkDownPath.save()
   var choicesFightBats = new Choice ({ text: "fight those bats"})
   choicesFightBats.save()
   var choicesFleeFromBats = new Choice ({ text: "turn tail and run from those bats"})
@@ -51,7 +53,7 @@ exports.seed = () => {
                             typeOfScene: "normal",
                             description: "the edge of a typical fairytale forest",
                             image: "http://weknownyourdreamz.com/images/forest/forest-04.jpg",
-                            choices: [choicesReturnToCastle._id, choicesClimbLadder._id] })
+                            choices: [choicesReturnToCastle._id, choicesWalkDownPath._id, choicesClimbLadder._id] })
   choicesFleeFromBats.nextScene = sceneForestStart._id
   choicesQuit.nextScene = sceneForestStart._id
   choicesRestart.nextScene = sceneForestStart._id
@@ -102,6 +104,7 @@ exports.seed = () => {
                             description: "An old path into the forest. Further on, you see a shifty looking band of goblins",
                             image: "https://s-media-cache-ak0.pinimg.com/originals/f6/35/dd/f635ddb1868d575823a06f7aa99e94b1.jpg",
                             choices: [choicesFightGoblins._id, ChoicesGlareAtGoblins._id] })
+  choicesWalkDownPath.nextScene = sceneOldPathIntoForest._id
   sceneOldPathIntoForest.save()
 
   var sceneGoblinEnd = new Scene ({ startingScene: false,
@@ -123,7 +126,7 @@ exports.seed = () => {
   var sceneInsideCottage = new Scene ({ startingScene: false,
                             typeOfScene: "fight",
                             description: "an old man with a creepy grin waits inside. with a cackle, he moves towards you.... menacingly",
-                            image: "",
+                            image: "http://static.fjcdn.com/pictures/When_96eeff_1756509.jpg",
                             choices: [choicesPushOldMan1._id, choicesShoutAtOldMan._id] })
   choicesEnterCottage.nextScene = sceneInsideCottage._id
   sceneInsideCottage.save()
