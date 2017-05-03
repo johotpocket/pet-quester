@@ -29,8 +29,13 @@ body {
   font-size: 20px;
   cursor: pointer;
 }
-<<<<<<< HEAD
 
-.scene-image {
-  max-width: 50%;
+.story-header {
+  font-family: 'MedievalSharp', cursive;
+  display: flex;
+}
+
+.story-page-container {
+  font-family: 'MedievalSharp', cursive;
+  font-size: 18px;
 }

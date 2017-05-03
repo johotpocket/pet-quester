@@ -17,7 +17,7 @@ body {
 
 .play-button {
   display: flex;
-  background-color: deeppink;
+  background-color: yellow;
   border-radius: 25px;
   color: white;
   padding: 15px 75px;
