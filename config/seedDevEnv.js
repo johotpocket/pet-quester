@@ -3,8 +3,6 @@ const Scene = require ('../models/Scenes');
 const Choice = require ('../models/Choices');
 
 exports.seed = () => {
-  var choicesReturnToCastle = new Choice ({ text: "return to castle"})
-  choicesReturnToCastle.save()
   var choicesClimbLadder = new Choice ({ text: "climb ladder"})
   choicesClimbLadder.save()
   choicesWalkDownPath = new Choice ({ text: "walk down the forest path" })
@@ -19,8 +17,6 @@ exports.seed = () => {
   choicesMoveOn.save()
   var choicesJump = new Choice ({ text: "jump into the raging waters. you probably won't survive, but you're brave, right?"})
   choicesJump.save()
-  var choicesDontJump = new Choice ({ text: "don't jump. coward."})
-  choicesDontJump.save()
   var choicesQuit = new Choice ({ text: "quit game"})
   choicesQuit.save()
   var choicesFightGoblins = new Choice ({ text: "fight those goblins" })
@@ -31,8 +27,6 @@ exports.seed = () => {
   choicesRestart.save()
   var choicesEnterCottage = new Choice ({ text: "enter the cottage. There's no way anyone lives here anymore."})
   choicesEnterCottage.save()
-  var choicesMovePastCottage = new Choice ({ text: "the cottage holds no interest to you. move on"})
-  choicesMovePastCottage.save()
   var choicesPushOldMan1 = new Choice ({ text: "push the old man down"})
   choicesPushOldMan1.save()
   var choicesPushOldMan2 = new Choice ({ text: "push the old man down"})
@@ -53,7 +47,7 @@ exports.seed = () => {
                             typeOfScene: "normal",
                             description: "the edge of a typical fairytale forest",
                             image: "http://weknownyourdreamz.com/images/forest/forest-04.jpg",
-                            choices: [choicesReturnToCastle._id, choicesWalkDownPath._id, choicesClimbLadder._id] })
+                            choices: [choicesWalkDownPath._id, choicesClimbLadder._id] })
   choicesFleeFromBats.nextScene = sceneForestStart._id
   choicesQuit.nextScene = sceneForestStart._id
   choicesRestart.nextScene = sceneForestStart._id
@@ -78,7 +72,7 @@ exports.seed = () => {
   var sceneLiveInElfVillage = new Scene ({ startingScene: false,
                             typeOfScene: "end",
                             description: "you decide to stay in the elf village for... a while. it's nice here",
-                            image: "",
+                            image: "http://vignette4.wikia.nocookie.net/lotr/images/6/63/Rivendell.jpg/revision/latest?cb=20050830085916",
                             choices: [choicesQuit._id, choicesRestart._id] })
   choicesLiveHere.nextScene = sceneLiveInElfVillage._id
   sceneLiveInElfVillage.save()
@@ -87,7 +81,7 @@ exports.seed = () => {
                             typeOfScene: "normal",
                             description: "the trees come to an end, and beyond you stretches an endless ocean, the end of a canvas",
                             image: "https://hannahsaustralianadventures.files.wordpress.com/2011/11/bondi-to-coogee-081.jpg",
-                            choices: [choicesJump._id, choicesDontJump._id] })
+                            choices: [choicesJump._id] })
   choicesMoveOn.nextScene = sceneForestEdge._id
   sceneForestEdge.save()
 
@@ -110,7 +104,7 @@ exports.seed = () => {
   var sceneGoblinEnd = new Scene ({ startingScene: false,
                             typeOfScene: "end",
                             description: "the goblins are not impressed with your scowling, and proceed to beat and rob you",
-                            image: "",
+                            image: "http://www.wizards.com/magic/images/cardart/ONS/Goblin_Piledriver.jpg",
                             choices: [choicesRestart._id, choicesQuit._id] })
   ChoicesGlareAtGoblins.nextScene = sceneGoblinEnd._id
   sceneGoblinEnd.save()
@@ -118,8 +112,8 @@ exports.seed = () => {
   var sceneOldCottage = new Scene ({ startingScene: false,
                             typeOfScene: "normal",
                             description: "a tiny cottage. it looks very, very old",
-                            image: "",
-                            choices: [choicesEnterCottage._id, choicesMovePastCottage._id] })
+                            image: "http://vignette2.wikia.nocookie.net/clubpenguinpookie/images/8/8e/Cottage-6.jpg/revision/latest?cb=20140620175411",
+                            choices: [choicesEnterCottage._id] })
   choicesFightGoblins.nextScene = sceneOldCottage._id
   sceneOldCottage.save()
 
@@ -168,7 +162,7 @@ exports.seed = () => {
   var sceneCottageEnd = new Scene ({ startingScene: false,
                             typeOfScene: "end",
                             description: "you begin to feel woozy. just before blacking out, you hear cackling.",
-                            image: "",
+                            image: "https://s-media-cache-ak0.pinimg.com/736x/70/ab/75/70ab758477fa84ed8fc0300ad40f260d.jpg",
                             choices: [choicesQuit._id, choicesRestart._id] })
   choicesLootCottage.nextScene = sceneCottageEnd._id
   choicesLeaveCottage.nextScene = sceneCottageEnd._id
