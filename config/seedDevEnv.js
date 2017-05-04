@@ -228,8 +228,47 @@ exports.seed = () => {
   var choicesKeepLookingThroughLibrary = new Choice ({ text: 'keep looking through the library' })
   choicesKeepLookingThroughLibrary.save()
 
-  var choicesGoToForest = new Choice ({ text: 'with the mighty sword, you venture off to the forest to conquer all' })
-choicesGoToForest.save()
+  var choicesGoToForestSword = new Choice ({ text: 'with the mighty sword, you venture off to the forest to conquer all' })
+  choicesGoToForestSword.save()
+
+  var choicesJumpOffTower = new Choice ({ text: 'jump off the tower. you are brave, arent you?' })
+  choicesJumpOffTower.save()
+
+  var choicesTurnOnSerio = new Choice ({ text: 'turn on the sterio in the corner of the room' })
+  choicesTurnOnSerio.save()
+
+  var choicesFightTheCroc = new Choice ({ text: 'fight with all your might!!' })
+  choicesFightTheCroc.save()
+
+  var choicesSwimAway = new Choice ({ text: 'swim swim swim away!!!!!!!' })
+  choicesSwimAway.save()
+
+  var choicesGoToForestFromballRoom = new Choice ({ text: 'theres a door that looks like it leads outside' })
+  choicesGoToForestFromballRoom.save()
+
+  var choicesGoToTheFlowers = new Choice ({ text: 'the flowers are pretty' })
+  choicesGoToTheFlowers.save()
+
+  var choicesGoToMaze = new Choice ({ text: 'the maze looks intriguing' })
+  choicesGoToMaze.save()
+
+  var choicesDunkHeadInFountain = new Choice ({ text: 'run to fountain and dunk head in' })
+  choicesDunkHeadInFountain.save()
+
+  var choicesWaitItOut = new Choice ({ text: 'you aint no pansy, wait it out' })
+  choicesWaitItOut.save()
+
+  var choicesTheLeftPath = new Choice ({ text: 'take the path to the left' })
+  choicesTheLeftPath.save()
+
+  var choicesTheRightPath = new Choice ({ text: 'take the path to the right' })
+  choicesTheRightPath.save()
+
+  var choicesTryToDefeat = new Choice ({ text: 'battle the mighty moster' })
+  choicesTryToDefeat.save()
+
+  var choicesRunToForest = new Choice ({ text: 'get out of there, stat!' })
+  choicesRunToForest.save()
 
   var sceneCastleLeaveStartRoom = new Scene ({ startingScene: false,
        typeOfScene: 'normal',
@@ -245,6 +284,105 @@ choicesGoToForest.save()
       choices: [choicesGoUpstairs._id, choicesGoDownStairs._id] })
   sceneFindAnotherDoor.save()
   choicesDoorNumOne.nextScene = sceneFindAnotherDoor._id
+
+  var sceneGoDownStairsToBallroom = new Scene ({ startingScene: false,
+      typeOfScene: 'normal',
+      description: 'you follow the stairs down to a beautiful ballroom',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuY76vtEK0bCf-RSXQQiyAQ0B7-iJq28ENQCeXL4irJWoelKJD2A',
+      choices: [choicesTurnOnSerio._id, choicesGoToForestFromballRoom._id] })
+  sceneGoDownStairsToBallroom.save()
+  choicesGoDownStairs.nextScene = sceneGoDownStairsToBallroom._id
+  choicesGoToForestFromballRoom.nextScene = sceneForestStart._id
+
+  var sceneDanceAround = new Scene ({ startingScene: false,
+      typeOfScene: 'ending',
+      description: 'you feel the beat of the music and groove all night. eventually attracting other wanders to come and join you. you all set up camp in the castle',
+      image: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTn2lvCkR0YrvoBVtlEhtwT34uB4rTz1gQq1hN12NM0o6LyBDM7',
+      choices: [choicesQuit._id, choicesRestart._id] })
+sceneDanceAround.save()
+choicesTurnOnSerio.nextScene = sceneDanceAround._id
+
+var sceneStairsGoToTower = new Scene ({ startingScene: false,
+    typeOfScene: 'normal',
+    description: 'the stairs lead you high up to the top of a tower. you must be at least 10 stories up. there is a paraglider leaning against the window',
+    image: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQn4JVChxNd-sMuN__2F3ticcroMAUyng69S_Qda5CQjKeV-r1u',
+    choices: [choicesJumpOffTower._id, choicesGoDownStairs._id] })
+  sceneStairsGoToTower.save()
+  choicesGoUpstairs.nextScene = sceneStairsGoToTower._id
+
+var sceneLandInMoatOnCroc = new Scene ({ startingScene: false,
+    typeOfScene: 'battle',
+    description: 'you landed on a crocodile in a moat. you must fight for your life',
+    image: 'http://www.kellyleko.com/uploads/5/3/1/2/5312618/8837237_orig.jpg',
+    choices: [choicesFightTheCroc._id, choicesSwimAway._id] })
+  sceneLandInMoatOnCroc.save()
+  choicesJumpOffTower.nextScene = sceneLandInMoatOnCroc._id
+
+  var sceneYouDidntMakeIt = new Scene ({ startingScene: false,
+      typeOfScene: 'ending',
+      description: 'you fought valiantly, but alas, you died.',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIb-XOM1fvsw0HlCATLAT6gQD6af35mvyuuB_a1G6eh8aWW-Bdnw',
+      choices: [choicesQuit._id, choicesRestart._id] })
+  sceneYouDidntMakeIt.save()
+  choicesSwimAway.nextScene = sceneYouDidntMakeIt._id
+
+  var sceneWinBattleWithCroc = new Scene ({ startingScene: false,
+      typeOfScene: 'normal',
+      description: 'after a brutal fight, you defeated the mighty croc. you now swim to shore where you find yourself in a courtyard. you notice beautiful flowers on one side and an entrance to a maze on the other',
+      image: 'http://1.bp.blogspot.com/-2NIej9m9Ay0/UmEiHNk0gaI/AAAAAAAACiM/gGg415iCrGE/s320/dscn1645.jpg',
+      choices: [choicesGoToTheFlowers._id, choicesGoToMaze._id] })
+  sceneWinBattleWithCroc.save()
+  choicesFightTheCroc.nextScene = sceneWinBattleWithCroc._id
+
+  var sceneExploreFlowers = new Scene ({ startingScene: false,
+      typeOfScene: 'normal',
+      description: 'you frolic towards the flowers, smelling them. they smell better than anything you have ever smelled before. but all of a sudden your face feels tingly. something isnt right.',
+      image: 'http://static.panoramio.com/photos/large/78904964.jpg',
+      choices: [choicesDunkHeadInFountain._id, choicesWaitItOut._id] })
+  sceneExploreFlowers.save()
+  choicesGoToTheFlowers.nextScene = sceneExploreFlowers._id
+
+  var sceneOhNoFountain = new Scene ({ startingScene: false,
+      typeOfScene: 'ending',
+      description: 'drats. whomever lived in this castle before filled the fountain with poison and you have died',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9Fjuv7-U_22cU6fOB9PBKKAb7HUNn_PNXuZ2eQ21aLM3BNv9d8Q',
+      choices: [choicesQuit._id, choicesRestart._id] })
+    sceneOhNoFountain.save()
+    choicesDunkHeadInFountain.nextScene = sceneOhNoFountain._id
+
+  var sceneCuredFromFlowers = new Scene ({ startingScene: false,
+      typeOfScene: 'ending',
+      description: 'good choice! the tingly feeling went away. with the castle door locked behind you you remember you have a tent and decide to set up a permanent camp.',
+      image: 'http://media.istockphoto.com/vectors/summer-time-camping-landscape-vector-id165057485?k=6&m=165057485&s=170667a&w=0&h=hdPR4b-3Pi4XEaKb6fY07HDQkoWtrTVY52S-Ym-ILaM=',
+      choices: [choicesQuit._id, choicesRestart._id] })
+  sceneCuredFromFlowers.save()
+  choicesWaitItOut.nextScene = sceneCuredFromFlowers._id
+
+var sceneExploreMaze = new Scene ({ startingScene: false,
+    typeOfScene: 'normal',
+    description: 'you enter the maze and now much choose the path to the left or the right',
+    image: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSQZ4JoRjdJ9Vsbv9YHsAjdL0N6J47GlUG6L2qi5qIeG0VTG6JE',
+    choices: [choicesTheLeftPath._id, choicesTheRightPath._id] })
+  sceneExploreMaze.save()
+  choicesGoToMaze.nextScene = sceneExploreMaze._id
+  choicesTheLeftPath.nextScene = sceneForestStart._id
+
+  var sceneBattleInMaze = new Scene ({ startingScene: false,
+      typeOfScene: 'battle',
+      description: 'UH OH. you rounded the corner and a big monster came out of no where!',
+      image: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRVSEOGjNS-jLu9jA470Lfr6_9oi08B8xWzo6Dihm9gYofdilPH',
+      choices: [choicesTryToDefeat._id, choicesRunToForest._id] })
+  sceneBattleInMaze.save()
+  choicesTheRightPath.nextScene = sceneBattleInMaze._id
+  choicesRunToForest.nextScene = sceneForestStart._id
+
+  var sceneWinning = new Scene ({ startingScene: false,
+      typeOfScene: 'ending',
+      description: 'you defeated the monster and ran out of the maze. you have won!',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaxt21iTJAgdVVciLLejQfCi9sL7UVj0qgA2Zgn1tkbEpuwY56QA',
+      choices: [choicesRestart._id, choicesQuit._id] })
+  sceneWinning.save()
+  choicesTryToDefeat.nextScene = sceneWinning._id
 
   var sceneFindKitchen = new Scene ({ startingScene: false,
       typeOfScene: 'normal',
@@ -274,11 +412,11 @@ choicesGoToForest.save()
         typeOfScene: 'normal',
         description: 'the creature rewards your generosity with a gift. you have recieved a magical sword.',
         image: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSgxQRA5LH0aIj4iuJhQf43fMEbh7Pik2pIiwOXWCtW2AW3W5ZI',
-        choices: [choicesGoToForest._id]
+        choices: [choicesGoToForestSword._id]
         })
     sceneRecieveGift.save()
     choicesFeedCreature.nextScene = sceneRecieveGift._id
-    choicesGoToForest.nextScene = sceneForestStart._id
+    choicesGoToForestSword.nextScene = sceneForestStart._id
 
   var sceneFoughtTheBoar = new Scene ({ startingScene: false,
       typeOfScene: 'ending',
@@ -334,9 +472,18 @@ choicesGoToForest.save()
                                         sceneEndUpInLibrary._id,
                                         sceneRecieveGift._id,
                                         sceneFoundSecretRoom._id,
-                                        sceneLiveOutYourLife._id
+                                        sceneLiveOutYourLife._id,
+                                        sceneStairsGoToTower._id,
+                                        sceneGoDownStairsToBallroom._id,
+                                        sceneLandInMoatOnCroc._id,
+                                        sceneDanceAround._id,
+                                        sceneWinBattleWithCroc._id,
+                                        sceneExploreFlowers._id,
+                                        sceneExploreMaze._id,
+                                        sceneOhNoFountain._id,
+                                        sceneCuredFromFlowers._id,
+                                        sceneBattleInMaze._id
                                           ] })
-
 
 castle.save((err, data) =>{
    if(err) {
