@@ -14,6 +14,13 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid grey;
+}
+
+.home-about {
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .game-name {
@@ -55,10 +62,15 @@ body {
   justify-content: center;
   font-family: 'Dancing Script', cursive;
   color: lightgoldenrodyellow;
-  background-image: url('http://wallpapercave.com/wp/FjnZ25X.jpg');
+  background-image: url('http://www.publicdomainpictures.net/pictures/130000/t2/night-sky-background-14391263141jp.jpg');
 }
 
 .about-story {
+  font-family: 'MedievalSharp', cursive;
+  font-size: 18px;
+}
+
+.instructions-story {
   font-family: 'MedievalSharp', cursive;
   font-size: 18px;
 }
