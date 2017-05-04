@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import $ from 'jquery';
 import Signupform from './Signupform';
+import browserHistory from 'react-router';
 
 class Signupcontainer extends Component {
   state = {
@@ -29,6 +30,8 @@ class Signupcontainer extends Component {
       method: 'POST',
       data: data
     }).done((data) => {
+        window.location = "/"
+        browserHistory.push('/home')
       console.log(data)
     })
   }

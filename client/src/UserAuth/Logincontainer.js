@@ -31,6 +31,7 @@ class Logincontainer extends Component {
       data: data
     }).done((data) => {
       if (data._id) {
+        window.location = "/"
         browserHistory.push('/home')
       } else {
         alert(data.message)

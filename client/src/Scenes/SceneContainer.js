@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import SceneCard from './SceneCard';
+import NoLoggedIn from '../UserAuth/NoLoggedIn';
 
 class SceneContainer extends Component {
   state = {
@@ -28,7 +29,7 @@ class SceneContainer extends Component {
   render() {
     return(
       <div>
-        { this.state.scene ? <SceneCard scene={this.state.scene}/> : null }
+        { this.props.user && this.props.user.message !== "no logged in" && this.state.scene ? <SceneCard scene={this.state.scene}/> : <NoLoggedIn/> }
       </div>
     )
   }
