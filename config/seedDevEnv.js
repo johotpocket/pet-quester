@@ -376,7 +376,7 @@ var sceneLandInMoatOnCroc = new Scene ({ startingScene: false,
 
   var sceneCuredFromFlowers = new Scene ({ startingScene: false,
       typeOfScene: 'ending',
-      description: 'good choice! the tingly feeling went away. with the castle door locked behind you you remember you have a tent and decide to set up a permanent camp.',
+      description: 'good choice! the tingly feeling went away. with the castle door locked behind you remember you have a tent and decide to set up a permanent camp.',
       image: 'http://media.istockphoto.com/vectors/summer-time-camping-landscape-vector-id165057485?k=6&m=165057485&s=170667a&w=0&h=hdPR4b-3Pi4XEaKb6fY07HDQkoWtrTVY52S-Ym-ILaM=',
       choices: [choicesQuit._id, choicesRestart._id] })
   sceneCuredFromFlowers.save()

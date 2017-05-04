@@ -15,9 +15,8 @@ class Story extends Component {
           Two large oak doors are opposite to you. Sunlight streamsthrough a small open window, and small birds can be heard
           chirping away. You glimpse the tops of trees outside, too. Curiously, you wander over to each door and open them
           slightly. It looks as if one leads into the castle, while the other leads outside to the forest. You now know
-          you can either stay in the castle to explore or you may leave and wonder through the forest. There could be
-          clues in the castle or forest to help you figure out who you are and where you came from.
-          One may leave you empty handed, but you must choose. Are you up for the adventure?
+          you can either stay in the castle to explore or you may leave and wonder through the forest. One may leave you
+          empty handed, but you must choose. Are you up for the adventure?
           </p>
         </div>
         <div className='instructions-story'>
