@@ -11,7 +11,6 @@ class Story extends Component {
         <div className='about-story'>
           <p> No memories of before, no memory of who you are... you awake with only the clothes on your back
           and a vague sense of unease. As your eyes focus to the dim candle-lit light, you take in your surroundings.
-<<<<<<< HEAD
           A comfortable but simple and old looking couch is underneath you, and stone walls surround you in a small room.
           Two large oak doors are opposite to you. Sunlight streams through a small open window, and small birds can be heard
           chirping away. You glimpse the tops of trees outside, too. Brimming with curiosity, you wander over to the doors
@@ -19,14 +18,6 @@ class Story extends Component {
           You can either stay in the castle to explore or you may leave and wander through the forest. There could be
           clues in the castle or the forest to help you figure out who you are and where you came from. You might even find some
           pets to pet? Incredible! Choose a path. Are you up for some adventure?
-=======
-          A comfy but simple and old looking couch is underneath you, and stone walls surround you in a small room.
-          Two large oak doors are opposite to you. Sunlight streamsthrough a small open window, and small birds can be heard
-          chirping away. You glimpse the tops of trees outside, too. Curiously, you wander over to each door and open them
-          slightly. It looks as if one leads into the castle, while the other leads outside to the forest. You now know
-          you can either stay in the castle to explore or you may leave and wonder through the forest. One may leave you
-          empty handed, but you must choose. Are you up for the adventure?
->>>>>>> ed73c64b5af9b4af7bfd13a56cfd0bc676f9f2f8
           </p>
         </div>
         <div className='instructions-story'>
