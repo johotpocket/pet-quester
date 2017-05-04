@@ -192,10 +192,10 @@ exports.seed = () => {
   var choicesDoorNumTwo = new Choice ({ text: 'door number two' })
   choicesDoorNumTwo.save()
 
-  var choicesEatSweets = new Choice ({ text: 'eat all the sweet food!' })
+  var choicesEatSweets = new Choice ({ text: 'eat all the sweet food' })
   choicesEatSweets.save()
 
-  var choicesEatSavory = new Choice ({ text: 'eat all the savory food!' })
+  var choicesEatSavory = new Choice ({ text: 'eat all the savory food' })
   choicesEatSavory.save()
 
   var choicesGoUpstairs = new Choice ({ text: 'follow the stairs up' })
@@ -225,7 +225,7 @@ exports.seed = () => {
   var choicesPullBookFromShelf = new Choice ({ text: 'this book looks out of place, pull it' })
   choicesPullBookFromShelf.save()
 
-  var choicesKeepLookingThroughLibrary = new Choice ({ text: 'there is nothing left here for you. you decide to live the remainder of your days in the castle' })
+  var choicesKeepLookingThroughLibrary = new Choice ({ text: 'keep looking through the library' })
   choicesKeepLookingThroughLibrary.save()
 
 
@@ -238,7 +238,7 @@ exports.seed = () => {
 
   var sceneFindAnotherDoor = new Scene ({ startingScene: false,
       typeOfScene: 'normal',
-      description: 'You open the door and find yourself in a creepy hallway. On the otherside is another door. You go to it and open it, there are stairs leading up and stairs leading down',
+      description: 'you open the door and find yourself in a creepy hallway. On the otherside is another door. You go to it and open it, there are stairs leading up and stairs leading down',
       image: 'http://www.urban75.org/photos/kent/images/dover-castle-20.jpg',
       choices: [choicesGoUpstairs._id, choicesGoDownStairs._id] })
   sceneFindAnotherDoor.save()
@@ -258,34 +258,39 @@ exports.seed = () => {
       image: 'http://3.bp.blogspot.com/-2MLUmOQbQks/UazOFHOpvdI/AAAAAAAALc8/w8cQ0ukdXek/s1600/(20130520)+-+Cardoness+Castle+-+007.JPG',
       choices: [choicesFightTheBoar._id, choicesRunAwayFromBoar._id] })
   sceneTrapDoorOpens.save()
+  choicesEatSweets.nextScene = sceneTrapDoorOpens._id
+
+  var sceneMagicalBeingAppears = new Scene ({ startingScene: false,
+      typeOfScene: 'normal',
+      description: 'after devouring all the savory treats, you look behind you and a magical creature stands before you',
+      image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQXHeCfiYRvNKZz8nLbNB3YsowNtU0l74hndnMSGcBofzPlgEYZ',
+      choices: [choicesFeedCreature._id, choicesLeaveKitchen._id] })
+    sceneMagicalBeingAppears.save()
+    choicesEatSavory.nextScene = sceneMagicalBeingAppears._id
+
+    var sceneRecieveGift = new Scene ({ startingScene: false,
+        typeOfScene: 'normal',
+        description: 'the creature rewards your generosity with a gift. you have recieved a magical sword.',
+        image: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSgxQRA5LH0aIj4iuJhQf43fMEbh7Pik2pIiwOXWCtW2AW3W5ZI',
+        })
+    sceneRecieveGift.save()
+    choicesFeedCreature.nextScene = sceneRecieveGift._id
 
   var sceneFoughtTheBoar = new Scene ({ startingScene: false,
       typeOfScene: 'ending',
-      description: 'You fought valiantly, but alas, you died.',
+      description: 'you fought valiantly, but alas, you died.',
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIb-XOM1fvsw0HlCATLAT6gQD6af35mvyuuB_a1G6eh8aWW-Bdnw',
       choices: [choicesQuit._id, choicesRestart._id] })
     sceneFoughtTheBoar.save()
     choicesFightTheBoar.nextScene = sceneFoughtTheBoar._id
 
   var sceneRunAwayFromBoar = new Scene ({ startingScene: false,
-      typeOfScene: 'winning',
-      description: 'You have won the game!!',
+      typeOfScene: 'ending',
+      description: 'you have won the game!!',
       image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaxt21iTJAgdVVciLLejQfCi9sL7UVj0qgA2Zgn1tkbEpuwY56QA',
       choices: [choicesRestart._id, choicesQuit._id] })
     sceneRunAwayFromBoar.save()
     choicesRunAwayFromBoar.nextScene = sceneRunAwayFromBoar._id
-
-
-    var sceneMagicalBeingAppears = new Scene ({ startingScene: false,
-        typeOfScene: 'normal',
-        description: 'after devouring all the savory treats, you look behind you and a magical creature stands before you',
-        image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQXHeCfiYRvNKZz8nLbNB3YsowNtU0l74hndnMSGcBofzPlgEYZ',
-        choices: [choicesFeedCreature._id, choicesLeaveKitchen._id] })
-      sceneMagicalBeingAppears.save()
-
-
-    choicesEatSweets.nextScene = sceneTrapDoorOpens._id
-    choicesEatSavory.nextScene = sceneMagicalBeingAppears._id
 
     var sceneEndUpInLibrary = new Scene ({ startingScene: false,
         typeOfScene: 'normal',
@@ -296,7 +301,21 @@ exports.seed = () => {
     sceneEndUpInLibrary.save()
     choicesLeaveKitchen.nextScene = sceneEndUpInLibrary._id
 
+    var sceneFoundSecretRoom = new Scene ({ startingScene: false,
+        typeOfScene: 'ending',
+        description: 'you won!! the secret door opens revealing a room. in the room is mounds of treasure! you live out your life, very very rich',
+        image: 'http://www.treasurenet.com/forums/attachment.php?attachmentid=1268749&d=1454636479',
+        choices: [choicesQuit._id, choicesRestart._id] })
+    sceneFoundSecretRoom.save()
+    choicesPullBookFromShelf.nextScene = sceneFoundSecretRoom._id
 
+    var sceneLiveOutYourLife = new Scene ({ startingScene: false,
+        typeOfScene: 'ending',
+        description: 'you lost. there is nothing left for you here. you decide to live the remainder of your days in the castle',
+        image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSTrmVtJYVzq_gu47rwYyyLnuGEE2ILwqzfJqUMQzhK0hFRtni3',
+        choices: [choicesQuit._id, choicesRestart._id] })
+    sceneLiveOutYourLife.save()
+    choicesKeepLookingThroughLibrary.nextScene = sceneLiveOutYourLife._id
 
 
 
@@ -309,6 +328,9 @@ exports.seed = () => {
                                         sceneRunAwayFromBoar._id,
                                         sceneMagicalBeingAppears._id,
                                         sceneEndUpInLibrary._id,
+                                        sceneRecieveGift._id,
+                                        sceneFoundSecretRoom._id,
+                                        sceneLiveOutYourLife._id
                                           ] })
 
 
