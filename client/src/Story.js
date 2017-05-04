@@ -23,7 +23,7 @@ class Story extends Component {
         <div className='instructions-story'>
          <h2> Instructions </h2>
          <p> The rules are simple, there are none. You will be playing a link style game, which means you will
-         go from adventure to adventure by clicking on one of the link options. Some links will lead you to succes,
+         go from adventure to adventure by clicking on one of the link options. Some links will lead you to success,
          while oters may lead you to failure, maybe even death! So, choose wisley and do not forget to log in before
          you start your game. That way you can save your progess or restart if you take a wrong turn. Good luck and
          have fun! Click on the link below to start!</p>
