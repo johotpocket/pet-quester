@@ -25,8 +25,10 @@ exports.seed = () => {
   ChoicesGlareAtGoblins.save()
   var choicesRestart = new Choice ({ text: "restart game"})
   choicesRestart.save()
-  var choicesEnterCottage = new Choice ({ text: "enter the cottage. There's no way anyone lives here anymore."})
+  var choicesEnterCottage = new Choice ({ text: "enter the cottage. There's no way anyone lives here anymore"})
   choicesEnterCottage.save()
+  var choicesIgnoreCottage = new Choice ({ text: "the cottage holds no interest to you. move on"})
+  choicesIgnoreCottage.save()
   var choicesPushOldMan1 = new Choice ({ text: "push the old man down"})
   choicesPushOldMan1.save()
   var choicesPushOldMan2 = new Choice ({ text: "push the old man down"})
@@ -41,6 +43,10 @@ exports.seed = () => {
   choicesLootCottage.save()
   var choicesLeaveCottage = new Choice ({ text: "leave the cottage"})
   choicesLeaveCottage.save()
+  var choicesJumpIntoRiver = new Choice ({ text: "the river is 100% rapids. jump in"})
+  choicesJumpIntoRiver.save()
+  var choicesCrossBridge = new Choice ({ text: "cross the bridge"})
+  choicesCrossBridge.save()
 
 
   var sceneForestStart = new Scene ({ startingScene: false,
@@ -113,7 +119,7 @@ exports.seed = () => {
                             typeOfScene: "normal",
                             description: "a tiny cottage. it looks very, very old",
                             image: "http://vignette2.wikia.nocookie.net/clubpenguinpookie/images/8/8e/Cottage-6.jpg/revision/latest?cb=20140620175411",
-                            choices: [choicesEnterCottage._id] })
+                            choices: [choicesEnterCottage._id, choicesIgnoreCottage._id] })
   choicesFightGoblins.nextScene = sceneOldCottage._id
   sceneOldCottage.save()
 
@@ -168,6 +174,22 @@ exports.seed = () => {
   choicesLeaveCottage.nextScene = sceneCottageEnd._id
   sceneCottageEnd.save()
 
+  var sceneRagingRiver = new Scene ({ startingScene: false,
+                            typeOfScene: "normal",
+                            description: "a raging river comes into view. a crumbling stone bridge crosses over it"
+                            image: "https://s-media-cache-ak0.pinimg.com/736x/e3/a5/50/e3a5500b4523e1494994e49ce5d269ca.jpg",
+                            choices: [choicesJumpIntoRiver._id, choicesCrossBridge._id] })
+  choicesIgnoreCottage.nextScene = sceneRagingRiver._id
+  sceneRagingRiver.save()
+
+  var sceneRiverEnd = new Scene ({ startingScene: false,
+                            typeOfScene: "end",
+                            description: "a cute puppy! you pet it, and a sense of fulfillment fills your being. you win!",
+                            image: "http://customersatisfaction.typepad.com/.a/6a00e3933761b588340163059587fa970d-pi",
+                            choices: [choicesQuit._id, choicesRestart._id] })
+  choicesCrossBridge.nextScene = sceneRiverEnd._id
+  sceneRiverEnd.save()
+
   var forest = new World ({ title: "Forest",
                             scenes: [sceneForestStart._id,
                                      sceneTreeWalkway._id,
@@ -183,7 +205,9 @@ exports.seed = () => {
                                      OldManPush2._id,
                                      OldManPush3._id,
                                      OldManShout._id,
-                                     sceneCottageEnd._id] })
+                                     sceneCottageEnd._id
+                                     sceneRagingRiver._id
+                                     sceneRiverEnd._id] })
 
 
   var choicesDoorNumOne = new Choice ({ text: 'door number one' })
