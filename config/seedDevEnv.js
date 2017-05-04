@@ -176,7 +176,7 @@ exports.seed = () => {
 
   var sceneRagingRiver = new Scene ({ startingScene: false,
                             typeOfScene: "normal",
-                            description: "a raging river comes into view. a crumbling stone bridge crosses over it"
+                            description: "a raging river comes into view. a crumbling stone bridge crosses over it",
                             image: "https://s-media-cache-ak0.pinimg.com/736x/e3/a5/50/e3a5500b4523e1494994e49ce5d269ca.jpg",
                             choices: [choicesJumpIntoRiver._id, choicesCrossBridge._id] })
   choicesIgnoreCottage.nextScene = sceneRagingRiver._id
@@ -205,8 +205,8 @@ exports.seed = () => {
                                      OldManPush2._id,
                                      OldManPush3._id,
                                      OldManShout._id,
-                                     sceneCottageEnd._id
-                                     sceneRagingRiver._id
+                                     sceneCottageEnd._id,
+                                     sceneRagingRiver._id,
                                      sceneRiverEnd._id] })
 
 
@@ -376,7 +376,7 @@ var sceneLandInMoatOnCroc = new Scene ({ startingScene: false,
 
   var sceneCuredFromFlowers = new Scene ({ startingScene: false,
       typeOfScene: 'ending',
-      description: 'good choice! the tingly feeling went away. with the castle door locked behind you you remember you have a tent and decide to set up a permanent camp.',
+      description: 'good choice! the tingly feeling went away. with the castle door locked behind you remember you have a tent and decide to set up a permanent camp.',
       image: 'http://media.istockphoto.com/vectors/summer-time-camping-landscape-vector-id165057485?k=6&m=165057485&s=170667a&w=0&h=hdPR4b-3Pi4XEaKb6fY07HDQkoWtrTVY52S-Ym-ILaM=',
       choices: [choicesQuit._id, choicesRestart._id] })
   sceneCuredFromFlowers.save()
