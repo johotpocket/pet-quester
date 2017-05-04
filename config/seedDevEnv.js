@@ -228,6 +228,8 @@ exports.seed = () => {
   var choicesKeepLookingThroughLibrary = new Choice ({ text: 'keep looking through the library' })
   choicesKeepLookingThroughLibrary.save()
 
+  var choicesGoToForest = new Choice ({ text: 'with the mighty sword, you venture off to the forest to conquer all' })
+choicesGoToForest.save()
 
   var sceneCastleLeaveStartRoom = new Scene ({ startingScene: false,
        typeOfScene: 'normal',
@@ -272,9 +274,11 @@ exports.seed = () => {
         typeOfScene: 'normal',
         description: 'the creature rewards your generosity with a gift. you have recieved a magical sword.',
         image: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSgxQRA5LH0aIj4iuJhQf43fMEbh7Pik2pIiwOXWCtW2AW3W5ZI',
+        choices: [choicesGoToForest._id]
         })
     sceneRecieveGift.save()
     choicesFeedCreature.nextScene = sceneRecieveGift._id
+    choicesGoToForest.nextScene = sceneForestStart._id
 
   var sceneFoughtTheBoar = new Scene ({ startingScene: false,
       typeOfScene: 'ending',
