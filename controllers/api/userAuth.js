@@ -19,8 +19,11 @@ app.post('/api/signup', function(req, res, next) {
                 console.log("inside the throw error");
                 throw e;
               }
-              console.log(user, "inside save user success");
-              res.json(user);
+              req.logIn(user, function(err) {
+                if (err) { return next(err); }
+                console.log("succesfully logged!", user)
+                return res.json(user);
+             });
             })
           }
         }
@@ -39,6 +42,7 @@ app.post('/api/login', function(req, res, next) {
        });
      })(req, res, next);
    });
+
 app.get('/api/get_user', function(req, res) {
     if (req.user) {
       console.log("user logged in");
@@ -47,4 +51,5 @@ app.get('/api/get_user', function(req, res) {
       res.json({message: "no logged in"})
     }
   })
+
 };
